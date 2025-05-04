@@ -4571,12 +4571,12 @@ function library:init()
             objects = {};
             text = {
                 {self.cheatname, true},
-                {"Private", true},
+                {"Private", false},
                 {self.gamename, true},
-                {'0 fps', true},
-                {'0ms', true},
-                {'00:00:00', true},
-                {'M, D, Y', true},
+                {'0 fps', false},
+                {'0ms', false},
+                {'00:00:00', false},
+                {'M, D, Y', false},
             };
             lock = 'custom';
             position = newUDim2(0,0,0,0);
@@ -4782,6 +4782,9 @@ function library:CreateSettingsTab(menu)
                library:Unload() 
            end
        end})
+    mainSection:AddButton({text = 'Rejoin Server', confirm = true, callback = function()
+        printidentity()
+    end})
 
     mainSection:AddSeparator({text = 'Indicators'});
 
